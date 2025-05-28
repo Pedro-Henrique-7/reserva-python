@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Recursos Disponíveis</title>
+</head>
+<body>
+    <h1>Recursos Disponíveis para Reserva</h1>
+    <ul>
+        {% for recurso in recursos %}
+            <li><strong>{{ recurso[1] }}</strong>: {{ recurso[2] }}</li>
+        {% else %}
+            <li>Nenhum recurso cadastrado.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
