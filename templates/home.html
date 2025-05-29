@@ -5,13 +5,25 @@
     <title>Recursos Disponíveis</title>
 </head>
 <body>
-    <h1>Recursos Disponíveis para Reserva</h1>
+    <h1>Recursos</h1>
+    <form method="get" action="/">
+        <label for="data">Escolha a data:</label>
+        <input type="date" name="data" value="{{ data }}">
+        <button type="submit">Ver disponibilidade</button>
+    </form>
+
     <ul>
         {% for recurso in recursos %}
-            <li><strong>{{ recurso[1] }}</strong>: {{ recurso[2] }}</li>
-        {% else %}
-            <li>Nenhum recurso cadastrado.</li>
+          <li>
+            <strong>{{ recurso['nome'] }}</strong>: {{ recurso['descricao'] }}<br>
+            <span>Status: <strong>{{ recurso['status'] }}</strong></span>
+          </li>
         {% endfor %}
-    </ul>
+      </ul>
+
+    <button><a href="{{url_for('adicionar_recurso_view')}}">Adicionr Recurso</a></button>
+    <button><a href="{{url_for('reservar_view')}}">Reservar Recurso</a></button>
+
+
 </body>
 </html>
